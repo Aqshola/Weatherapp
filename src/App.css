@@ -1,7 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .App {
-  text-align: center;
   width: 80%;
   margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.greeting {
+  width: 50%;
+  margin-left: 10%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .searchbar {
@@ -34,4 +50,26 @@
   border: none;
   background-color: lightblue;
   box-shadow: 13px 13px 26px #e3e3e3, -13px -13px 26px #fff;
+}
+
+.current-container {
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  width: 90%;
+  display: flex;
+  box-shadow: 10px 10px 0px #f5f4f4, -14px -14px 0px #ffffff;
+}
+
+.current-weather {
+  width: 60%;
+  text-align: center;
+}
+
+.current-detail {
+  width: 40%;
 }

@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import "./App.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 import { SearchBOx } from "./Searchbox"
+import { WeatherSect } from "./WeatherSection"
+import { Greeting } from "./Greeting"
 
 function App() {
   const [city, setCity] = useState("")
@@ -74,7 +76,9 @@ function App() {
 
   return (
     <div className="App">
+      <Greeting />
       <SearchBOx change={onchange} click={onclick} />
+      <WeatherSect />
     </div>
   )
 }
