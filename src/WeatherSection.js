@@ -6,7 +6,7 @@ export function WeatherSect() {
       <div className="current-container">
         <div className="current-weather">
           <div className="img">
-            <img></img>
+            <img src="#" alt="" />
           </div>
           <div className="current text">
             <h3>Weather</h3>

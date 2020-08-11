@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import { SearchBOx } from "./Searchbox"
 import { WeatherSect } from "./WeatherSection"
 import { Greeting } from "./Greeting"
+import { Cardlist } from "./cardlist"
 
 function App() {
   const [city, setCity] = useState("")
@@ -79,6 +80,7 @@ function App() {
       <Greeting />
       <SearchBOx change={onchange} click={onclick} />
       <WeatherSect />
+      <Cardlist />
     </div>
   )
 }

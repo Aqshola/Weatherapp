@@ -9,12 +9,12 @@
   display: flex;
   flex-direction: column;
   width: 90%;
+  gap: 20px;
 }
 
 .greeting {
   width: 50%;
   margin-left: 10%;
-  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -31,8 +31,6 @@
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
-  border: none;
-  box-shadow: 13px 13px 26px #e3e3e3, -13px -13px 26px #fff;
   width: 10%;
   padding-left: 20px;
 }
@@ -49,12 +47,10 @@
   -o-border-radius: 20px;
   border: none;
   background-color: lightblue;
-  box-shadow: 13px 13px 26px #e3e3e3, -13px -13px 26px #fff;
 }
 
 .current-container {
   margin: auto;
-  margin-top: 50px;
   border-radius: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
@@ -71,5 +67,23 @@
 }
 
 .current-detail {
+  display: flex;
   width: 40%;
+  justify-content: center;
+  align-content: center;
+}
+
+.forecastlist {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.card {
+  font-size: 15px;
+  list-style: none;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
 }
