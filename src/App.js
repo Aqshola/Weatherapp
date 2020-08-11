@@ -8,7 +8,7 @@ import { Cardlist } from "./cardlist"
 
 function App() {
   const [city, setCity] = useState("")
-  const [currentWeather, setstateCurrentWeather] = useState([])
+  const [currentWeather, setCurrentWeather] = useState([])
   const [forecast, setforecast] = useState([])
   const [Now, setNow] = useState([])
 
@@ -21,32 +21,27 @@ function App() {
       `https:api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=0e1d8596d00a9cb7562359634209c46d`
     )
       .then((res) => res.json())
-      .then((el) => setstateCurrentWeather(el.dt))
-
-    fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=0e1d8596d00a9cb7562359634209c46d`
-    )
-      .then((res) => res.json())
       .then((el) => {
-        let m = []
-        el.list.map((el) => m.push(el.dt))
-        setforecast(m)
+        console.log(el)
+        setCurrentWeather({
+          city: el.name,
+          temp: el.main.temp,
+          wind: el.wind.speed,
+          weather: el.weather[0].main,
+        })
       })
-    test()
-  }
-  function test() {
-    let arr = []
-    forecast.map((el, i) => {
-      if (forecast[i] > currentWeather && arr.length < 3) {
-        arr.push(forecast[i])
-      }
-    })
-    setNow(arr)
+      .catch((err) => console.log(err))
 
-    console.log("waktu skrg ", timeConverter(currentWeather))
-    Now.map((el) => {
-      console.log("waktu baru ", timeConverter(el))
-    })
+    // fetch(
+    //   `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=0e1d8596d00a9cb7562359634209c46d`
+    // )
+    //   .then((res) => res.json())
+    //   .then((el) => {
+    //     let m = []
+    //     el.list.map((el) => m.push(el.dt))
+    //     setforecast(m)
+    //   })
+    // test()
   }
 
   function timeConverter(UNIX_timestamp) {
@@ -79,7 +74,7 @@ function App() {
     <div className="App">
       <Greeting />
       <SearchBOx change={onchange} click={onclick} />
-      <WeatherSect />
+      <WeatherSect data={currentWeather} />
       <Cardlist />
     </div>
   )
