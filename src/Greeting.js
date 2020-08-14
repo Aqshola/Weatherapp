@@ -12,13 +12,23 @@ export function Greeting() {
       return "Good Night"
     }
   }
+  function getdate() {
+    let day = new Date()
+    let convert = new Intl.DateTimeFormat("en-US", {
+      weekday: "short",
+      day: "numeric",
+      month: "long",
+    }).format(day)
+
+    return convert
+  }
   return (
     <div className="greeting">
       <div className="greet">
         <h5>{gethour()}</h5>
       </div>
       <div className="date">
-        <h6>25 januari 2020</h6>
+        <h6>{getdate()}</h6>
       </div>
       <div></div>
     </div>
