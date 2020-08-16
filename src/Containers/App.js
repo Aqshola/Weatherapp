@@ -12,17 +12,18 @@ function App() {
   const [forecast, setforecast] = useState([])
   const [display, setdisplay] = useState(false)
   const [fail, setfail] = useState(false)
-  const [icon, seticon] = useState("0")
-  const key = `0e1d8596d00a9cb7562359634209c46d`
+  const url = [
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=0e1d8596d00a9cb7562359634209c46d`,
+    `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=0e1d8596d00a9cb7562359634209c46d`,
+  ]
 
   onchange = (e) => {
     setCity(e.target.value)
   }
 
   function onclick() {
-    fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${key}`
-    )
+    const [current, forecast] = url
+    fetch(current)
       .then((res) => res.json())
       .then((el) => {
         setCurrentWeather(
@@ -32,17 +33,15 @@ function App() {
             hum: el.main.humidity,
             wind: el.wind.speed,
             weather: el.weather[0].main,
+            icon: el.weather[0].icon,
           },
-          seticon(el.weather[0].icon),
           setdisplay(true),
           setfail(false)
         )
       })
       .catch((err) => setfail(true))
 
-    fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${key}`
-    )
+    fetch(forecast)
       .then((res) => res.json())
       .then((el) => {
         setforecast(el.list)
@@ -53,12 +52,7 @@ function App() {
       <div className="App">
         <Greeting />
         <SearchBOx change={onchange} click={onclick} />
-        <WeatherSect
-          error={fail}
-          data={currentWeather}
-          display={display}
-          icon={icon}
-        />
+        <WeatherSect error={fail} data={currentWeather} display={display} />
         <Cardlist data={forecast} />
       </div>
     </div>
