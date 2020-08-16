@@ -21,7 +21,7 @@ function App() {
 
   function onclick() {
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${key}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${key}`
     )
       .then((res) => res.json())
       .then((el) => {
@@ -41,7 +41,7 @@ function App() {
       .catch((err) => setfail(true))
 
     fetch(
-      `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${key}`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${key}`
     )
       .then((res) => res.json())
       .then((el) => {
