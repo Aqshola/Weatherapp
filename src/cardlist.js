@@ -13,10 +13,6 @@ export function Cardlist({ data }) {
       </div>
     )
   } catch (error) {
-    return (
-      <div>
-        <h1 className="mx-auto">Data error</h1>
-      </div>
-    )
+    return <div></div>
   }
 }
