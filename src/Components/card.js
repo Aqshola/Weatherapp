@@ -15,7 +15,7 @@ export function Cardcom({ data }) {
         <li>{`${Math.ceil(data.main.temp)} °C`}</li>
       </div>
       <div className="card-weather">
-        <img src={`/Asset/${data.weather[0].icon}.png`} alt="" />
+        <img src={require(`../Asset/${data.weather[0].icon}.png`)} alt="" />
       </div>
     </div>
   )

@@ -12,6 +12,7 @@ function App() {
   const [forecast, setforecast] = useState([])
   const [display, setdisplay] = useState(false)
   const [fail, setfail] = useState(false)
+  const [icon, seticon] = useState("0e1d8596d00a9cb7562359634209c46d")
   const url = [
     `https:api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=0e1d8596d00a9cb7562359634209c46d`,
     `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=0e1d8596d00a9cb7562359634209c46d`,
@@ -33,8 +34,8 @@ function App() {
             hum: el.main.humidity,
             wind: el.wind.speed,
             weather: el.weather[0].main,
-            icon: el.weather[0].icon,
           },
+          seticon(el.weather[0].icon),
           setdisplay(true),
           setfail(false)
         )
@@ -52,7 +53,12 @@ function App() {
       <div className="App">
         <Greeting />
         <SearchBOx change={onchange} click={onclick} />
-        <WeatherSect error={fail} data={currentWeather} display={display} />
+        <WeatherSect
+          error={fail}
+          data={currentWeather}
+          display={display}
+          icon={icon}
+        />
         <Cardlist data={forecast} />
       </div>
     </div>

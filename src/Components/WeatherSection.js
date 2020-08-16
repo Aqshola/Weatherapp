@@ -1,12 +1,11 @@
 import React from "react"
 
-export function WeatherSect({ data, display, error }) {
-  const { city, wind, temp, weather, hum, icon } = data
-
+export function WeatherSect({ data, display, error, icon }) {
+  const { city, wind, temp, weather, hum } = data
   if (error) {
     return (
       <div className="failed">
-        <img src="/Asset/fail.svg" alt="" />
+        <img src={require(`../Asset/fail.svg`)} alt="error" />
         <h4>City not found</h4>
       </div>
     )
@@ -17,7 +16,7 @@ export function WeatherSect({ data, display, error }) {
           <div className="current-container">
             <div className="current-weather">
               <div className="img">
-                <img src={`/Asset/${icon}.png`} alt="" />
+                <img src={require(`../Asset/${icon}.png`)} alt="" />
               </div>
               <div className="current text">
                 <h6>{weather}</h6>
